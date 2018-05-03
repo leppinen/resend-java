@@ -1,0 +1,64 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'distribution'
+//apply plugin: 'application'
+
+group = 'io.aino.tools'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+springBoot {
+	mainClassName = 'io.aino.tools.resend.ResendApplication'
+}
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile("org.springframework:spring-web")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.boot:spring-boot-starter-tomcat')
+	testCompile("junit:junit")
+	testCompile("com.github.tomakehurst:wiremock-standalone:2.14.0")
+}
+
+jar {
+	enabled = true
+}
+
+bootJar {
+	classifier = 'boot'
+}
+
+distributions {
+	main {
+		baseName= 'AinoResend'
+		contents {
+			exclude('**/j*.jar')
+			exclude('**/l*.jar')
+			exclude('**/s*.jar')
+			into('config/') {
+				from {'src/main/resources/application.yml'}
+			}
+			into('lib') {
+				from {'build/libs'}
+				include('**/resend-*-boot.jar')
+			}
+		}
+	}
+}

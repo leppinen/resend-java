@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: INFO
+    io:
+        aino:
+           tools:
+              resend: INFO
+    org.apache.http.wire: INFO
+    org.springframework.web: INFO
+  path: logs
+spring:
+    test: false
+aino:
+  inputFile:  logs/aino.log
+  apikey: no_apikey_yet
+  url: https://data.aino.io/rest/v2.0/transaction
