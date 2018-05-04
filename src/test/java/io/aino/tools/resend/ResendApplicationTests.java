@@ -69,7 +69,7 @@ public class ResendApplicationTests {
     public void successfullResend() throws IOException {
         int port = wireMockRule.port();
         resendConfigurationProperties.seturl("http://localhost:"+port+"/rest/v2.0/transaction");
-        displayIt(new File("."));
+        displayIt(new File("build/resources"));
         resendApplication.executeResend("build/resources/test/aino.log");
     }
 
