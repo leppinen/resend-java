@@ -39,7 +39,7 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: gradle clean test --info
+      - run: gradle test
 
       - run:
           name: Save test results
@@ -49,8 +49,19 @@ jobs:
           when: always
 
       - store_test_results:
-          path: ~/build/reports
-          destination: ~/junit
+          path: ~build/reports
+          destination: ~/junit/
+
+      # Create dist !
+      - run: gradle distZip
+
+      - run:
+          name: Save build
+          command: |
+            mkdir -p ~/dist/
+            cp -r build ~/dist/
+          when: always
+
 
       - store_artifacts:
           path: ~/junit

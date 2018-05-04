@@ -69,7 +69,6 @@ public class ResendApplicationTests {
     public void successfullResend() throws IOException {
         int port = wireMockRule.port();
         resendConfigurationProperties.seturl("http://localhost:"+port+"/rest/v2.0/transaction");
-        displayIt(new File("src/"));
         resendApplication.executeResend("src/test/logs/aino.log");
     }
 
@@ -95,16 +94,4 @@ public class ResendApplicationTests {
         resendApplication.executeResend("src/test/logs/aino.log");
     }
 
-    public static void displayIt(File node){
-
-        System.out.println(node.getAbsoluteFile());
-        logger.info(node.getAbsoluteFile().getAbsolutePath());
-        if(node.isDirectory()){
-            String[] subNote = node.list();
-            for(String filename : subNote){
-                displayIt(new File(node, filename));
-            }
-        }
-
-    }
 }
