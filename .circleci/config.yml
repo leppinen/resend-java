@@ -59,7 +59,7 @@ jobs:
           name: Save build
           command: |
             mkdir -p ~/dist/
-            cp -r build ~/dist/
+            find . -type f -regex ".*/build/distributions/*" -exec cp {} ~/junit/ \;
           when: always
 
 
