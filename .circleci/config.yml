@@ -49,7 +49,7 @@ jobs:
           when: always
 
       - store_test_results:
-          path: ~build/reports
+          path: ~/build
           destination: ~/junit/
 
       # Create dist !
