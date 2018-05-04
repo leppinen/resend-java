@@ -49,7 +49,8 @@ jobs:
           when: always
 
       - store_test_results:
-          path: ~/junit
+          path: ~/build/reports
+          destination: ~/junit
 
       - store_artifacts:
           path: ~/junit
