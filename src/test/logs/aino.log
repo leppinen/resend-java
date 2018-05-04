@@ -1,0 +1,53 @@
+Apr 19, 2018 12:31:42 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+SEVERE: Failed to send LogEntries. HTTP status code: 503 Response body: Full HTML message page
+Apr 19, 2018 12:31:42 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+SEVERE: Failed to send LogEntries. HTTP status code: 503 Response body: Full HTML message page
+Apr 19, 2018 12:31:42 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+SEVERE: Failed to send LogEntries. HTTP status code: 503 Response body: Full HTML message page
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.Sender performRequest
+SEVERE: 
+AINO_ERROR_START
+{"transactions":[{"message":"","timestamp":1524807828684,"status":"success","flowId":"","ids":[],"metadata":[],"from":"TestApp 1","to":"TestApp 2","operation":"","payloadType":""}]}
+AINO_ERROR_END
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+SEVERE: Failed to send LogEntries after 5 tries. Discarding the entries.
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+SEVERE: Failed to send LogEntries. HTTP status code: 503 Response body: Full HTML message page
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+SEVERE: Failed to send LogEntries. HTTP status code: 503 Response body: Full HTML message page
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+SEVERE: Failed to send LogEntries. HTTP status code: 503 Response body: Full HTML message page
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.Sender performRequest
+SEVERE: 
+AINO_ERROR_START
+{"transactions":[{"message":"","timestamp":1524807828690,"status":"success","flowId":"","ids":[],"metadata":[],"from":"TestApp 1","to":"TestApp 2","operation":"","payloadType":""}]}
+AINO_ERROR_END
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+SEVERE: Failed to send LogEntries after 5 tries. Discarding the entries.
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.SenderStatus createLogMessagesForStatus
+SEVERE: Failed to send LogEntries. HTTP status code: 503 Response body: Full HTML message page
+Apr 19, 2018 12:31:43 PM io.aino.agents.core.Sender performRequest
+SEVERE: 
+AINO_ERROR_START
+{"transactions":[{"message":"resend","timestamp":1524807828790,"status":"success","flowId":"12345678912345","ids":[{"id":"abc","id":"efg"}],
+"metadata":[],"from":"TestApp 1","to":"TestApp 2",
+"operation":"update","payloadType":""},
+    {
+        "message":"resend",
+        "timestamp":1524807828790,
+        "status":"success",
+        "flowId":"12345678912345",
+        "ids": [{
+                "idType": "Customer ID",
+                "values": ["123", "456", "789"]
+               }],
+        "metadata":[],
+        "from":"TestApp 1",
+        "to":"TestApp 2",
+        "operation":"update",
+        "payloadType":""
+    }]
+}
+AINO_ERROR_END
+SEVERE: Failed to send LogEntries after 5 tries. Discarding the entries.

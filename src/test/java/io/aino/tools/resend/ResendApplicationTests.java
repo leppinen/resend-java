@@ -70,7 +70,7 @@ public class ResendApplicationTests {
         int port = wireMockRule.port();
         resendConfigurationProperties.seturl("http://localhost:"+port+"/rest/v2.0/transaction");
         displayIt(new File("src/"));
-        resendApplication.executeResend("build/resources/test/aino.log");
+        resendApplication.executeResend("src/test/logs/aino.log");
     }
 
     /**
@@ -92,7 +92,7 @@ public class ResendApplicationTests {
         int port = wireMockRule.port();
         // Change URL for mock returning 401 Access denied error
         resendConfigurationProperties.seturl("http://localhost:"+port+"/rest/v2.0/transactionfail");
-        resendApplication.executeResend("src/test/resources/aino.log");
+        resendApplication.executeResend("src/test/logs/aino.log");
     }
 
     public static void displayIt(File node){
