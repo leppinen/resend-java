@@ -6,12 +6,14 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 
@@ -26,6 +28,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 		webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {"spring.test=true"})
 public class ResendApplicationTests {
     ResponseEntity response;
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(ResendApplicationTests.class);
 
     @Autowired
     private ResendApplication resendApplication;
@@ -66,6 +69,7 @@ public class ResendApplicationTests {
     public void successfullResend() throws IOException {
         int port = wireMockRule.port();
         resendConfigurationProperties.seturl("http://localhost:"+port+"/rest/v2.0/transaction");
+        displayIt(new File("."));
         resendApplication.executeResend("build/resources/test/aino.log");
     }
 
@@ -89,5 +93,18 @@ public class ResendApplicationTests {
         // Change URL for mock returning 401 Access denied error
         resendConfigurationProperties.seturl("http://localhost:"+port+"/rest/v2.0/transactionfail");
         resendApplication.executeResend("src/test/resources/aino.log");
+    }
+
+    public static void displayIt(File node){
+
+        System.out.println(node.getAbsoluteFile());
+        logger.info(node.getAbsoluteFile().getAbsolutePath());
+        if(node.isDirectory()){
+            String[] subNote = node.list();
+            for(String filename : subNote){
+                displayIt(new File(node, filename));
+            }
+        }
+
     }
 }
