@@ -59,9 +59,9 @@ jobs:
           name: Save build
           command: |
             mkdir -p ~/dist/
-            find . -type f -regex ".*/build/distributions/*" -exec cp {} ~/junit/ \;
+            cp -r .*/build/distributions/* ~/dist
+            cp -r ~/dist $CIRCLE_ARTIFACTS
           when: always
-
 
       - store_artifacts:
           path: ~/junit
