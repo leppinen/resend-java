@@ -49,19 +49,24 @@ jobs:
           when: always
 
       - store_test_results:
-          path: ~/build
+          path: ~/build/reports
           destination: ~/junit/
 
       # Create dist !
       - run: gradle distZip
 
+      # Collect distribution
       - run:
           name: Save build
           command: |
             mkdir -p ~/dist/
             cp -r .*/build/distributions/* ~/dist
-            cp -r ~/dist ~/junit
           when: always
 
+      # store unit-test
       - store_artifacts:
           path: ~/junit
+
+      # store distribution
+      - store_artifacts:
+          path: ~/dist
