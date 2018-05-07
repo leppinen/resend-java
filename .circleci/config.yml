@@ -63,9 +63,21 @@ jobs:
             cp -r .*/build/distributions/* ~/dist
           when: always
 
+      # Collect test Results
+      - run:
+          name: Save results
+          command: |
+            mkdir -p ~/reports/
+            cp -r .*/build/reports/* ~/reports
+          when: always
+
       # store unit-test
       - store_artifacts:
           path: ~/junit
+
+      # store test reports
+      - store_artifacts:
+          path: ~/reports
 
       # store distribution
       - store_artifacts:
